@@ -1,4 +1,4 @@
-import { isValidTask } from '../validators/tasks.validator.js'
+import { isValidTask } from '../../validators/tasks.validator.js'
 import { updateDB, saveDB, findAllDB } from '../services/tasks.services.js'
 
 export const getTasks = async (req, res) => {

@@ -1,4 +1,4 @@
-import { isValidProject } from '../validators/projects.validator.js'
+import { isValidProject } from '../../validators/projects.validator.js'
 import {
   findDB,
   updateDB,
