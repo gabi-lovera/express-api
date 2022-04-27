@@ -1,9 +1,10 @@
 import mongoose from 'mongoose'
 import { redLog, blueLog } from '../utils/logs.js'
+import { DB_MONGO_URI } from '../config/index.js'
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.DB_MONGO_URI, {
+    await mongoose.connect(DB_MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
