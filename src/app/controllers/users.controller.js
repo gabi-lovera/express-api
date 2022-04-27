@@ -1,4 +1,4 @@
-import { isValidUser } from '../../validators/users.validator.js'
+import { isValidUser } from '../validators/users.validator.js'
 import { saveDB, findDB } from '../services/users.services.js'
 
 export const getUser = async (req, res) => {
