@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import { redLog, blueLog } from './utils/logs.js'
+import { redLog, blueLog } from '../utils/logs.js'
 
 const connectDB = async () => {
   try {
