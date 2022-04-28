@@ -1,5 +1,7 @@
 # express-api
 
+development of a rest api by myself with ES6 to practice
+
 ## Start Server
 
 `npm start`
