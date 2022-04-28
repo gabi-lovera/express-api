@@ -2,7 +2,7 @@ import {
   getTasks,
   createTask,
   editTask,
-} from '../app/controllers/tasks.controller.js'
+} from '../controllers/tasks.controller.js'
 import express from 'express'
 const router = express.Router()
 

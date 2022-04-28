@@ -4,7 +4,7 @@ import {
   createProject,
   updateProject,
   deleteProject,
-} from '../app/controllers/projects.controller.js'
+} from '../controllers/projects.controller.js'
 import express from 'express'
 const router = express.Router()
 

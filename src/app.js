@@ -5,9 +5,9 @@ import morgan from 'morgan'
 import { PORT } from './config/index.js'
 import { blueLog } from './utils/logs.js'
 import connectDB from './databases/mongodb.js'
-import usersRouter from './routes/users.js'
-import projectsRouter from './routes/projects.js'
-import tasksRouter from './routes/tasks.js'
+import usersRouter from './app/routes/users.js'
+import projectsRouter from './app/routes/projects.js'
+import tasksRouter from './app/routes/tasks.js'
 
 const app = express()
 
