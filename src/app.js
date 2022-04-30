@@ -2,12 +2,10 @@ import express from 'express'
 import cors from 'cors'
 import helmet from 'helmet'
 import morgan from 'morgan'
-import 'dotenv/config'
+import { PORT } from './config/index.js'
 import { blueLog } from './utils/logs.js'
-import connectDB from './database.js'
-import usersRouter from './routes/users.js'
-import projectsRouter from './routes/projects.js'
-import commentsRouter from './routes/comments.js'
+import connectDB from './databases/mongodb.js'
+import { usersRouter, projectsRouter, tasksRouter } from './app/routes/index.js'
 
 const app = express()
 
@@ -20,11 +18,9 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use('/users', usersRouter)
 app.use('/projects', projectsRouter)
-app.use('/comments', commentsRouter)
+app.use('/tasks', tasksRouter)
 
 await connectDB()
-
-const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
   blueLog(`Server is running on port ${PORT}`)
 })

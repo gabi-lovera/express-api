@@ -1,0 +1,32 @@
+{
+  "valid": {
+    "title": "my task",
+    "finished": true,
+    "user_id": "226b309910467e66bd26la46",
+    "project_id": "626b309910467e66bd26fa32"
+  },
+  "invalidTitle": {
+    "title": "",
+    "finished": false,
+    "user_id": "626becd5a20d86ffab6e1b78",
+    "project_id": "626becd5a20d76ffab6e1b73"
+  },
+  "invalidStatus": {
+    "title": "Emilio",
+    "user_id": "226b309910467e66bd26la46",
+    "project_id": "626b309910467e66bd26fa32",
+    "finished": "yes"
+  },
+  "invalidUserId": {
+    "title": "Emilio",
+    "user_id": "id_user",
+    "project_id": "626b309910467e66bd26fa32",
+    "finished": "yes"
+  },
+  "invalidProjectId": {
+    "title": "Emilio",
+    "user_id": "226b309910467e66bd26la46",
+    "project_id": "55",
+    "finished": "yes"
+  }
+}

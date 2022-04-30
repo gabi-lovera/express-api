@@ -1,0 +1,21 @@
+{
+  "valid": {
+    "title": "my project",
+    "initials": "IBS",
+    "description": "my project description",
+    "comments": [
+      { "body": "fist comment", "date": "19/05/2017" },
+      { "body": "second comment", "date": "26/05/2017" }
+    ]
+  },
+  "invalidTitle": {
+    "title": "",
+    "initials": "IBS",
+    "description": "my project description"
+  },
+  "invalidInitials": {
+    "title": "my project",
+    "initials": "Y",
+    "description": "other project description"
+  }
+}
