@@ -1,17 +1,21 @@
 {
   "valid": {
-    "username": "Emilio",
-    "password": "123456",
-    "email": "emilio12@gmail.com"
+    "title": "my project",
+    "initials": "IBS",
+    "description": "my project description",
+    "comments": [
+      { "body": "fist comment", "date": "19/05/2017" },
+      { "body": "second comment", "date": "26/05/2017" }
+    ]
   },
-  "invalidUsername": {
-    "username": "",
-    "password": "123456",
-    "email": "emilio12@gmail.com"
+  "invalidTitle": {
+    "title": "",
+    "initials": "IBS",
+    "description": "my project description"
   },
-  "invalidPassword": {
-    "username": "Emilio",
-    "password": "",
-    "email": "emilio12@gmail.com"
+  "invalidInitials": {
+    "title": "my project",
+    "initials": "Y",
+    "description": "other project description"
   }
 }

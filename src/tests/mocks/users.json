@@ -1,17 +1,17 @@
 {
   "valid": {
-    "username": "Emilio",
+    "name": "Emilio",
     "password": "123456",
     "email": "emilio12@gmail.com"
   },
   "invalidUsername": {
-    "username": "",
-    "password": "123456",
-    "email": "emilio12@gmail.com"
+    "name": "",
+    "password": "password",
+    "email": "javier12@gmail.com"
   },
   "invalidPassword": {
-    "username": "Emilio",
+    "name": "Luis",
     "password": "",
-    "email": "emilio12@gmail.com"
+    "email": "luis97@gmail.com"
   }
 }
