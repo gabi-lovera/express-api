@@ -2,15 +2,34 @@ import mongoose from 'mongoose'
 const { Schema, model } = mongoose
 
 const taskSchema = new Schema({
-  title: String,
-  author: String,
-  body: String,
-  comments: [{ body: String, date: Date }],
-  date: { type: Date, default: Date.now },
-  hidden: Boolean,
-  meta: {
-    votes: Number,
-    favs: Number,
+  title: {
+    type: String,
+    required: true,
+  },
+  finished: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
+  user_id: {
+    type: Schema.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+  project_id: {
+    type: Schema.ObjectId,
+    ref: 'Project',
+    required: true,
+  },
+  created: {
+    type: Date,
+    required: true,
+    default: Date.now,
+  },
+  modified: {
+    type: Date,
+    required: true,
+    default: Date.now,
   },
 })
 

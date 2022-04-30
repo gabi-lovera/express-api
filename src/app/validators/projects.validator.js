@@ -1,19 +1,22 @@
 import Joi from 'joi'
 
 const projectSchema = Joi.object({
-  username: Joi.string().alphanum().min(3).max(30).required(),
-  password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
-  repeat_password: Joi.ref('password'),
-  access_token: [Joi.string(), Joi.number()],
-  birth_year: Joi.number().integer().min(1900).max(2013),
-  email: Joi.string().email({
-    minDomainSegments: 2,
-    tlds: { allow: ['com', 'net'] },
-  }),
-}).with('username', 'password')
+  title: Joi.string().min(10).max(50).required(),
+  initials: Joi.string().alphanum().min(2).max(8),
+  description: Joi.string().min(30).max(255),
+  comments: Joi.array().items(
+    Joi.object({
+      body: Joi.string(),
+      date: Joi.date(),
+    })
+  ),
+})
 
 export const isValidProject = (project) => {
   const { error } = projectSchema.validate(project)
-  if (error) return false
+  if (error) {
+    console.log(error.details[0].message)
+    return false
+  }
   return true
 }

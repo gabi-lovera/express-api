@@ -1,12 +1,16 @@
 import Project from '../models/Project.js'
 
-const findAllDB = () => Project.find()
-const findDB = (id) => Project.findById(id)
-const deleteDB = (id) => Project.findByIdAndDelete(id)
-const updateDB = (id, project) =>
-  Project.findByIdAndUpdate(id, project, { new: true })
+const findAllProjects = () => Project.find()
 
-const saveDB = (project) => {
+const findProject = (id) => Project.findById(id)
+
+const deleteProjectDB = (id) => Project.findByIdAndDelete(id)
+
+const updateProjectDB = (id, project) => {
+  return Project.findByIdAndUpdate(id, project, { new: true })
+}
+
+const saveProject = (project) => {
   const { username, password } = project
   const newProject = new Project({
     username,
@@ -15,4 +19,10 @@ const saveDB = (project) => {
   return newProject.save()
 }
 
-export { findDB, deleteDB, updateDB, saveDB, findAllDB }
+export {
+  findAllProjects,
+  findProject,
+  deleteProjectDB,
+  updateProjectDB,
+  saveProject,
+}

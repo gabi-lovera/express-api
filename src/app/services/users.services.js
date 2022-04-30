@@ -1,14 +1,15 @@
 import User from '../models/User.js'
 
-const findDB = (id) => User.findById(id)
+const findUserInDB = (id) => User.findById(id)
 
-const saveDB = (user) => {
-  const { username, password } = user
+const saveUserInDB = (user) => {
+  const { name, email, password } = user
   const newUser = new User({
-    username,
+    name,
+    email,
     password,
   })
   return newUser.save()
 }
 
-export { findDB, saveDB }
+export { findUserInDB, saveUserInDB }

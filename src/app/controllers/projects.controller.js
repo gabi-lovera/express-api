@@ -1,18 +1,19 @@
 import { isValidProject } from '../validators/projects.validator.js'
 import {
-  findDB,
-  updateDB,
-  saveDB,
-  deleteDB,
-  findAllDB,
+  findProject,
+  updateProjectDB,
+  saveProject,
+  deleteProjectDB,
+  findAllProjects,
 } from '../services/projects.services.js'
 
 export const getProject = async (req, res) => {
   const { id } = req.params
   try {
-    const projectFound = await findDB(id)
-    if (!projectFound)
+    const projectFound = await findProject(id)
+    if (!projectFound) {
       return res.status(404).json({ message: 'Project not found' })
+    }
 
     res.json(projectFound)
   } catch (error) {
@@ -22,11 +23,12 @@ export const getProject = async (req, res) => {
 
 export const getProjects = async (req, res) => {
   try {
-    const projectFound = await findAllDB()
-    if (!projectFound)
-      return res.status(404).json({ message: 'Project not found' })
+    const projectsFound = await findAllProjects()
+    if (!projectsFound) {
+      return res.status(404).json({ message: 'Projects not found' })
+    }
 
-    res.json(projectFound)
+    res.json(projectsFound)
   } catch (error) {
     res.status(500).json({ message: error.message })
   }
@@ -39,7 +41,7 @@ export const createProject = async (req, res) => {
   if (!validProject) return res.status(400).send('Invalid project')
 
   try {
-    const savedProject = await saveDB(project)
+    const savedProject = await saveProject(project)
     res.status(200).json(savedProject)
   } catch (error) {
     res.status(500).json({ message: error.message })
@@ -50,9 +52,10 @@ export const updateProject = async (req, res) => {
   const { id } = req.params
   const project = req.body
   try {
-    const updatedProject = await updateDB(id, project)
-    if (!updatedProject)
+    const updatedProject = await updateProjectDB(id, project)
+    if (!updatedProject) {
       return res.status(404).json({ message: 'Project Not Found' })
+    }
 
     res.json(updatedProject)
   } catch (error) {
@@ -63,7 +66,7 @@ export const updateProject = async (req, res) => {
 export const deleteProject = async (req, res) => {
   const { id } = req.params
   try {
-    const deletedProject = await deleteDB(id)
+    const deletedProject = await deleteProjectDB(id)
     if (!deletedProject) {
       return res.status(404).json({ message: 'Project does not exists' })
     }

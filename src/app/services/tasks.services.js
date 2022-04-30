@@ -1,11 +1,12 @@
 import Task from '../models/Task.js'
 
-const findAllDB = () => Task.find()
-const findDB = (id) => Task.findById(id)
-const deleteDB = (id) => Task.findByIdAndDelete(id)
-const updateDB = (id, task) => Task.findByIdAndUpdate(id, task, { new: true })
+const findAllTask = () => Task.find()
 
-const saveDB = (task) => {
+const updateTaskDB = (id, task) => {
+  return Task.findByIdAndUpdate(id, task, { new: true })
+}
+
+const saveTask = (task) => {
   const { username, password } = task
   const newTask = new Task({
     username,
@@ -14,4 +15,4 @@ const saveDB = (task) => {
   return newTask.save()
 }
 
-export { findDB, deleteDB, updateDB, saveDB, findAllDB }
+export { findAllTask, updateTaskDB, saveTask }
