@@ -1,4 +1,7 @@
-import { isValidProject } from '../validators/projects.validator.js'
+import {
+  isValidProjectToSave,
+  isValidProjectToUpdate,
+} from '../validators/projects.validator.js'
 import {
   findProject,
   updateProjectDB,
@@ -36,7 +39,7 @@ export const getProjects = async (req, res) => {
 
 export const createProject = async (req, res) => {
   const project = req.body
-  const validProject = isValidProject(project)
+  const validProject = isValidProjectToSave(project)
 
   if (!validProject) return res.status(400).send('Invalid project')
 
@@ -51,6 +54,10 @@ export const createProject = async (req, res) => {
 export const updateProject = async (req, res) => {
   const { id } = req.params
   const project = req.body
+
+  const validProject = isValidProjectToUpdate(project)
+  if (!validProject) return res.status(400).send('Invalid project')
+
   try {
     const updatedProject = await updateProjectDB(id, project)
     if (!updatedProject) {

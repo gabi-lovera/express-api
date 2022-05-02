@@ -1,14 +1,28 @@
 import Joi from 'joi'
 
-const taskSchema = Joi.object({
-  title: Joi.string().min(40).max(75).required(),
+const taskSchemaOnSave = Joi.object({
+  description: Joi.string().min(20).max(75).required(),
   finished: Joi.boolean(),
   user_id: Joi.string().hex().length(24).required(),
   project_id: Joi.string().hex().length(24).required(),
 }).with('user_id', 'project_id')
 
-export const isValidTask = (task) => {
-  const { error } = taskSchema.validate(task)
+export const isValidTaskToSave = (task) => {
+  const { error } = taskSchemaOnSave.validate(task)
+  if (error) {
+    console.log(error.details[0].message)
+    return false
+  }
+  return true
+}
+
+const taskSchemaOnUpdate = Joi.object({
+  description: Joi.string().min(20).max(75),
+  finished: Joi.boolean(),
+})
+
+export const isValidTaskToUpdate = (task) => {
+  const { error } = taskSchemaOnUpdate.validate(task)
   if (error) return false
   return true
 }

@@ -1,9 +1,9 @@
 import Joi from 'joi'
 
-const projectSchema = Joi.object({
-  title: Joi.string().min(10).max(50).required(),
+const projectSchemaOnSave = Joi.object({
+  title: Joi.string().min(5).max(50).required(),
   initials: Joi.string().alphanum().min(2).max(8),
-  description: Joi.string().min(30).max(255),
+  description: Joi.string().min(20).max(255),
   comments: Joi.array().items(
     Joi.object({
       body: Joi.string(),
@@ -12,11 +12,25 @@ const projectSchema = Joi.object({
   ),
 })
 
-export const isValidProject = (project) => {
-  const { error } = projectSchema.validate(project)
-  if (error) {
-    console.log(error.details[0].message)
-    return false
-  }
+export const isValidProjectToSave = (project) => {
+  const { error } = projectSchemaOnSave.validate(project)
+  if (error) return false
+  return true
+}
+
+const projectSchemaOnUpdate = Joi.object({
+  title: Joi.string().min(5).max(50),
+  description: Joi.string().min(20).max(255),
+  comments: Joi.array().items(
+    Joi.object({
+      body: Joi.string(),
+      date: Joi.date(),
+    })
+  ),
+})
+
+export const isValidProjectToUpdate = (project) => {
+  const { error } = projectSchemaOnUpdate.validate(project)
+  if (error) return false
   return true
 }

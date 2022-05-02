@@ -1,18 +1,20 @@
 import Task from '../models/Task.js'
 
-const findAllTask = () => Task.find()
+const findAllTasks = () => Task.find()
 
 const updateTaskDB = (id, task) => {
   return Task.findByIdAndUpdate(id, task, { new: true })
 }
 
 const saveTask = (task) => {
-  const { username, password } = task
+  const { description, finished, user_id, project_id } = task
   const newTask = new Task({
-    username,
-    password,
+    description,
+    finished,
+    user_id,
+    project_id,
   })
   return newTask.save()
 }
 
-export { findAllTask, updateTaskDB, saveTask }
+export { findAllTasks, updateTaskDB, saveTask }
