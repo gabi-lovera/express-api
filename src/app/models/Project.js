@@ -10,6 +10,10 @@ const projectSchema = new Schema({
     type: String,
     required: false,
   },
+  initials: {
+    type: String,
+    required: false,
+  },
   created: {
     type: Date,
     required: true,

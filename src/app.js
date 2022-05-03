@@ -21,6 +21,7 @@ app.use('/projects', projectsRouter)
 app.use('/tasks', tasksRouter)
 
 await connectDB()
-app.listen(PORT, () => {
+
+export const server = app.listen(PORT, () => {
   blueLog(`Server is running on port ${PORT}`)
 })
