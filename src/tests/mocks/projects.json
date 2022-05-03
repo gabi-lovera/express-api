@@ -1,21 +1,21 @@
 {
   "valid": {
-    "title": "my project",
+    "title": "my project title is amazing",
     "initials": "IBS",
-    "description": "my project description",
+    "description": "my first project description is this...",
     "comments": [
-      { "body": "fist comment", "date": "19/05/2017" },
-      { "body": "second comment", "date": "26/05/2017" }
+      { "body": "fist comment", "date": "2022-04-30T05:49:15.721+00:00" },
+      { "body": "second comment", "date": "2022-04-30T05:49:15.721+00:00" }
     ]
   },
   "invalidTitle": {
     "title": "",
     "initials": "IBS",
-    "description": "my project description"
+    "description": "my second project description..."
   },
   "invalidInitials": {
-    "title": "my project",
+    "title": "my project title idk",
     "initials": "Y",
-    "description": "other project description"
+    "description": "another project description..."
   }
 }
