@@ -11,10 +11,12 @@ const updateProjectDB = (id, project) => {
 }
 
 const saveProject = (project) => {
-  const { title, description } = project
+  const { title, description, initials, comments } = project
   const newProject = new Project({
     title,
     description,
+    initials,
+    comments,
   })
   return newProject.save()
 }
