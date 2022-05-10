@@ -3,11 +3,12 @@ import {
   createTask,
   editTask,
 } from '../controllers/tasks.controller.js'
+import verifyToken from '../middlewares/authentication.js'
 import express from 'express'
 const router = express.Router()
 
 router.get('/', getTasks)
-router.post('/', createTask)
-router.put('/:id', editTask)
+router.post('/', verifyToken, createTask)
+router.put('/:id', verifyToken, editTask)
 
 export default router
